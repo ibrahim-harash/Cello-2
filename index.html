@@ -76,9 +76,10 @@
         .splash-title {
             font-size: 34px;
             font-weight: 900;
-            background: linear-gradient(to right, #fef08a, #f59e0b, #d97706);
+            background: linear-gradient(to bottom, #ffffff 30%, #e2e8f0 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 10px rgba(255, 255, 255, 0.25));
             margin-bottom: 24px;
             letter-spacing: 1px;
         }
@@ -150,12 +151,24 @@
         }
 
         .brand-title {
-            font-size: 34px;
+            font-size: 36px;
             font-weight: 900;
-            background: linear-gradient(to right, #ffffff, #fca5a5, #ef4444);
+            background: linear-gradient(to bottom, #ffffff 35%, #cbd5e1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 6px;
+            filter: drop-shadow(0 2px 12px rgba(255, 255, 255, 0.2));
+            line-height: 1.2;
+            margin-bottom: 2px;
+        }
+
+        .brand-title-en {
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            color: #f8fafc;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            opacity: 0.9;
         }
 
         .brand-subtitle {
@@ -380,7 +393,7 @@
         .modal-name {
             font-size: 16px;
             font-weight: 700;
-            color: #f87171;
+            color: #ffffff;
             margin-bottom: 4px;
         }
 
@@ -416,6 +429,7 @@
             <img src="brado.jpg" alt="شعار شركة تشيللو" class="brand-logo-img">
         </div>
         <h1 class="brand-title">تشيللو</h1>
+        <div class="brand-title-en">CELLO</div>
         <p class="brand-subtitle">المنصة الرسمية للروابط والتواصل</p>
 
         <div class="links-list">
@@ -480,7 +494,7 @@
             
             <div class="qr-wrapper" id="qrcodeContainer"></div>
             
-            <div class="modal-name">تشيللو</div>
+            <div class="modal-name">تشيللو - CELLO</div>
             <div class="modal-id">a1ba7001a8e167b9d7ff475ac6fd5130</div>
             
             <button class="qr-action-btn btn-download-qr" style="width: 100%; padding: 12px;" onclick="downloadQrImage()">
