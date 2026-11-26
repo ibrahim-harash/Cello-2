@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تشيللو | الروابط الرسمية</title>
+    <link rel="preload" as="image" href="brado.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -49,12 +50,13 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            transition: opacity 0.7s ease, visibility 0.7s ease;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
         }
 
         #splash-screen.hidden {
             opacity: 0;
             visibility: hidden;
+            pointer-events: none;
         }
 
         .splash-logo {
@@ -101,7 +103,7 @@
             background-size: 200% 100%;
             border-radius: 999px;
             box-shadow: 0 0 12px rgba(251, 191, 36, 0.8);
-            animation: fillGoldBar 2s cubic-bezier(0.4, 0, 0.2, 1) forwards, shimmerGold 1.5s linear infinite;
+            animation: fillGoldBar 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards, shimmerGold 1.5s linear infinite;
         }
 
         @keyframes fillGoldBar {
@@ -422,7 +424,7 @@
 
     <!-- شاشة الترحيب -->
     <div id="splash-screen">
-        <img src="brado.jpg" alt="شعار تشيللو" class="splash-logo">
+        <img src="brado.jpg" alt="شعار تشيللو" class="splash-logo" fetchpriority="high">
         <div class="splash-title">تشيللو</div>
         <div class="loader-track">
             <div class="loader-bar"></div>
@@ -529,11 +531,18 @@
     </div>
 
     <script>
-        // إخفاء شاشة الترحيب بعد انتهاء شريط التحميل
-        window.addEventListener('load', () => {
+        // إخفاء شاشة الترحيب خلال 3 ثوانٍ كحد أقصى دون انتظار تحميل الملفات الخارجية
+        document.addEventListener('DOMContentLoaded', () => {
+            const splash = document.getElementById('splash-screen');
+            
             setTimeout(() => {
-                document.getElementById('splash-screen').classList.add('hidden');
-            }, 2150);
+                if (splash) {
+                    splash.classList.add('hidden');
+                    setTimeout(() => {
+                        splash.style.display = 'none';
+                    }, 500);
+                }
+            }, 2500);
         });
 
         const shamCashId = "a1ba7001a8e167b9d7ff475ac6fd5130";
